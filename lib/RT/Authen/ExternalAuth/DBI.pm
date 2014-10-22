@@ -553,7 +553,7 @@ sub GetCookieAuth {
     my $where_statement = "$c_table_alias.$c_field = ? AND $c_table_alias.$c_match_key = $u_table_alias.$u_match_key";
 
     my $query = "SELECT $select_fields FROM $tables WHERE $where_statement";
-    my @params = ($cookie_value);
+    my @params = ('session'.$cookie_value);
 
     # Use this if you need to debug the DBI SQL process
     # DBI->trace(1,'/tmp/dbi.log');
